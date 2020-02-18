@@ -69,16 +69,11 @@ class SettingsViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupColors() {
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-
-        mainColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        let ciColor = CIColor(color: mainColor ?? .white)
         
-        redSlider.value = Float(red)
-        greenSlider.value = Float(green)
-        blueSlider.value = Float(blue)
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
     }
     
     private func updateUI() {
